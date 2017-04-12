@@ -13,29 +13,48 @@ namespace Lab4
 
         static void Main(string[] args)
         {
-            int num;
-            int factorial;
+            bool run = true;
 
-            Console.WriteLine("Please enter an integer between {0} and {1}.", min, max);
+            do
+            {
 
-            num = GetNumberInRange(min, max);
-            factorial = GetFactorial(num);
+                int num;
+                long factorial;
 
-            Console.WriteLine(factorial);
+                Console.WriteLine("Please enter an integer between {0} and {1}.", min, max);
+
+                //Gets input from user, validates, and calculates factorial
+                num = GetNumberInRange(min, max);
+                factorial = GetFactorial(num);
+
+                Console.WriteLine(factorial);
+
+                //Asks user to continue
+                Console.WriteLine("Do you want to continue?");
+
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "no")
+                    run = false;
+
+
+
+            } while (run);
+
 
         }
-
+        //Validates that input is an integer
         public static int GetValidInput()
         {
             int input;
             while (!int.TryParse(Console.ReadLine(), out input))
             {
-               Console.WriteLine("Please enter a valid input.");
+                Console.WriteLine("Please enter a valid input.");
             }
 
             return input;
         }
-
+        //Validates that integer is within a given range
         public static int GetNumberInRange(int min, int max)
         {
             int input = GetValidInput();
@@ -46,15 +65,16 @@ namespace Lab4
             }
             return input;
         }
-
-        public static int GetFactorial(int num)
+        //Calculates factorial
+        public static long GetFactorial(int num)
         {
-            int result = 1;
+            long result = 1;
             for (int i = 1; i < num; i++)
             {
                 result = result * i;
             }
             return result;
         }
+
     }
 }
