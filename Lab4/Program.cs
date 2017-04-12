@@ -28,10 +28,10 @@ namespace Lab4
                 num = GetNumberInRange(min, max);
                 factorial = GetFactorial(num);
 
-                Console.WriteLine(factorial);
+                Console.WriteLine("The factorial of {0} is {1}\n", num, factorial);
 
-                long testnum = TestFactorial();
-                Console.WriteLine(testnum);
+                //long testnum = TestFactorial();
+                //Console.WriteLine(testnum);
 
                 //Asks user to continue
                 Console.WriteLine("Do you want to continue?");
