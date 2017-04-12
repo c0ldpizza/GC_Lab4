@@ -9,7 +9,7 @@ namespace Lab4
     class Program
     {
         static int min = 1;
-        static int max = 10;
+        static int max = 22;    //Calculated from Testfactorial
 
         static void Main(string[] args)
         {
@@ -21,6 +21,7 @@ namespace Lab4
                 int num;
                 long factorial;
 
+
                 Console.WriteLine("Please enter an integer between {0} and {1}.", min, max);
 
                 //Gets input from user, validates, and calculates factorial
@@ -28,6 +29,9 @@ namespace Lab4
                 factorial = GetFactorial(num);
 
                 Console.WriteLine(factorial);
+
+                //long testnum = TestFactorial();
+                //Console.WriteLine(testnum);
 
                 //Asks user to continue
                 Console.WriteLine("Do you want to continue?");
@@ -76,5 +80,30 @@ namespace Lab4
             return result;
         }
 
+        public static long TestFactorial()
+        {
+            int limit;
+            bool run = true;
+
+            do
+            {
+                for (int i = 1; ; i++)
+                {
+                    long test;
+                    limit = i;
+                    test = GetFactorial(i);
+
+                    if (test <= 0)
+                    {
+                        limit = i - 1;
+                        run = false;
+                        break;
+                    }
+                }
+
+            } while (run);
+
+            return limit;
+        }
     }
 }
