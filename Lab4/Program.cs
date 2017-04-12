@@ -9,7 +9,7 @@ namespace Lab4
     class Program
     {
         static int min = 1;
-        static int max = 22;    //Calculated from Testfactorial
+        static int max = 21;    //Calculated from Testfactorial
 
         static void Main(string[] args)
         {
@@ -30,8 +30,8 @@ namespace Lab4
 
                 Console.WriteLine(factorial);
 
-                //long testnum = TestFactorial();
-                //Console.WriteLine(testnum);
+                long testnum = TestFactorial();
+                Console.WriteLine(testnum);
 
                 //Asks user to continue
                 Console.WriteLine("Do you want to continue?");
@@ -80,30 +80,28 @@ namespace Lab4
             return result;
         }
 
+        //Tests increasing factorials until a value is returned that long can't store
         public static long TestFactorial()
         {
             int limit;
             bool run = true;
 
-            do
+            for (int i = 1; ; i++)
             {
-                for (int i = 1; ; i++)
+                long test;
+                limit = i;
+                test = GetFactorial(i);
+
+                if (test <= 0)
                 {
-                    long test;
-                    limit = i;
-                    test = GetFactorial(i);
-
-                    if (test <= 0)
-                    {
-                        limit = i - 1;
-                        run = false;
-                        break;
-                    }
+                    limit = i - 1;
+                    //run = false;
+                    break;
                 }
-
-            } while (run);
+            }
 
             return limit;
         }
+
     }
 }
