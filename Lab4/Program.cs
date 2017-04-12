@@ -14,12 +14,14 @@ namespace Lab4
         static void Main(string[] args)
         {
             int num;
+            int factorial;
 
             Console.WriteLine("Please enter an integer between {0} and {1}.", min, max);
 
             num = GetNumberInRange(min, max);
+            factorial = GetFactorial(num);
 
-            Console.WriteLine(num);
+            Console.WriteLine(factorial);
 
         }
 
@@ -43,6 +45,16 @@ namespace Lab4
                 input = GetValidInput();
             }
             return input;
+        }
+
+        public static int GetFactorial(int num)
+        {
+            int result = 1;
+            for (int i = 1; i < num; i++)
+            {
+                result = result * i;
+            }
+            return result;
         }
     }
 }
