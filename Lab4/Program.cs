@@ -25,7 +25,7 @@ namespace Lab4
 
                 //Gets input from user, validates, and calculates factorial
                 num = GetNumberInRange(min, max);
-                factorial = GetFactorial(num);
+                factorial = GetFactorialRecursion(num);
 
                 Console.WriteLine("The factorial of {0} is {1}\n", num, factorial);
 
@@ -74,6 +74,14 @@ namespace Lab4
                 result = result * i;
             }
             return result;
+        }
+
+        public static long GetFactorialRecursion(int num)
+        {
+            if (num == 0)
+                return 1;
+            else
+                return num * GetFactorialRecursion(num - 1);
         }
 
         //Tests increasing factorials until a value is returned that long can't store
