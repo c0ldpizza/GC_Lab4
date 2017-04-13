@@ -21,7 +21,6 @@ namespace Lab4
                 int num;
                 long factorial;
 
-
                 Console.WriteLine("Please enter an integer between {0} and {1}.", min, max);
 
                 //Gets input from user, validates, and calculates factorial
@@ -40,11 +39,8 @@ namespace Lab4
 
                 if (input.ToLower() == "no")
                     run = false;
-
-
-
+                
             } while (run);
-
 
         }
         //Validates that input is an integer
@@ -84,7 +80,6 @@ namespace Lab4
         public static long TestFactorial()
         {
             int limit;
-            bool run = true;
 
             for (int i = 1; ; i++)
             {
